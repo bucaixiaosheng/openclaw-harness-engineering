@@ -1,0 +1,93 @@
+{
+  "contract_id": "SC-FEAT-001",
+  "feature_id": "FEAT-001",
+  "status": "completed",
+  "created_at": "2026-03-28T18:00:00+08:00",
+  "updated_at": "2026-03-28T19:00:00+08:00",
+  "generator_commitment": {
+    "planned_build": "构建Todo数据模型，实现JSON文件持久化存储，包含Todo类定义（id/title/completed/created_at字段）和Storage类（create/read/update/delete方法）",
+    "verification_criteria": [
+      "todo/models.py文件存在且包含Todo数据类定义",
+      "todo/storage.py文件存在且包含Storage类及CRUD方法",
+      "存储文件为合法JSON，可被json.load正确解析",
+      "create操作生成的Todo包含所有必需字段且id唯一",
+      "对不存在的id执行read/update/delete时返回合理错误"
+    ],
+    "output_files": [
+      "todo/models.py",
+      "todo/storage.py",
+      "tests/test_models.py"
+    ]
+  },
+  "evaluator_criteria": {
+    "dimensions": {
+      "functionality": {
+        "weight": 0.30,
+        "description": "功能完整性：是否实现了Contract中定义的所有功能点",
+        "scoring_guide": "5=全部功能完整; 4=全部实现无遗漏; 3=核心功能实现; 2=核心功能部分实现; 1=严重不完整"
+      },
+      "code_quality": {
+        "weight": 0.25,
+        "description": "代码质量：代码结构、可读性、错误处理",
+        "scoring_guide": "5=生产级质量; 4=良好可维护; 3=基本可用; 2=需重构; 1=不可用"
+      },
+      "documentation": {
+        "weight": 0.20,
+        "description": "文档完整性：README、API文档、代码注释",
+        "scoring_guide": "5=文档完备含示例; 4=文档完整; 3=基本完整; 2=不完整; 1=无文档"
+      },
+      "test_coverage": {
+        "weight": 0.15,
+        "description": "测试覆盖：单元测试、边界测试覆盖度",
+        "scoring_guide": "5=全面覆盖; 4=核心路径覆盖; 3=基本测试; 2=测试不足; 1=无测试"
+      },
+      "architecture_compliance": {
+        "weight": 0.10,
+        "description": "架构合规：是否符合Harness Engineering架构规范",
+        "scoring_guide": "5=完全符合; 4=符合规范; 3=基本符合; 2=部分符合; 1=不符合"
+      }
+    },
+    "score_thresholds": {
+      "pass": 80,
+      "fail": 60
+    }
+  },
+  "negotiation_history": [
+    {
+      "round": 1,
+      "role": "generator",
+      "message": "提议实现Todo数据模型，包含Todo类和Storage类，使用JSON文件持久化。验证方式：检查文件存在且JSON可解析。",
+      "timestamp": "2026-03-28T18:00:00+08:00"
+    },
+    {
+      "round": 1,
+      "role": "evaluator",
+      "message": "审查通过。建议补充：对JSON文件损坏的错误处理、id唯一性保证。请确认verification_criteria是否包含这些场景。",
+      "timestamp": "2026-03-28T18:05:00+08:00"
+    },
+    {
+      "round": 1,
+      "role": "generator",
+      "message": "已将错误处理和id唯一性加入verification_criteria。Contract确认，可以开始实现。",
+      "timestamp": "2026-03-28T18:10:00+08:00"
+    }
+  ],
+  "evaluation_result": {
+    "scores": {
+      "functionality": {"score": 4, "weighted": 1.20},
+      "code_quality": {"score": 3, "weighted": 0.75},
+      "documentation": {"score": 4, "weighted": 0.80},
+      "test_coverage": {"score": 3, "weighted": 0.45},
+      "architecture_compliance": {"score": 4, "weighted": 0.40}
+    },
+    "weighted_total": 81.0,
+    "verdict": "PASS",
+    "improvement_suggestions": [
+      "增加边界情况测试（空文件、损坏JSON）",
+      "补充详细函数注释和类型注解",
+      "考虑添加数据迁移机制"
+    ]
+  },
+  "iteration": 1,
+  "max_iterations": 3
+}

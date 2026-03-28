@@ -98,14 +98,21 @@ openclaw-harness-engineering/
 ├── feature_list.json                  # 实际 Feature List（从模板复制后编辑）
 ├── sprint_contract_template.json      # Sprint Contract 模板
 ├── evaluator_rubric.json              # 评估评分标准
+├── scripts/                           # 可执行脚本
+│   ├── run_harness.sh                 # 主控脚本（Bash）
+│   ├── create_feature_list.py         # Feature List 管理工具
+│   ├── negotiate_sprint_contract.py   # Sprint Contract 管理工具
+│   ├── evaluate_sprint.py             # Sprint 评估脚本
+│   ├── check_feature_progress.py      # 进度检查工具
+│   └── harness_report.py              # 报告生成工具
+├── examples/                          # 示例数据
+│   └── example_project/
+│       ├── feature_list.json
+│       ├── sprint_contract.json
+│       ├── evaluation_report.json
+│       └── README.md
 ├── sprint_contracts/                  # Sprint Contract 存放目录
-│   ├── SC-001-xxx.json
-│   ├── SC-002-xxx.json
-│   └── ...
 ├── evaluation_reports/                # 评估报告存放目录
-│   ├── ER-001-xxx.json
-│   ├── ER-002-xxx.json
-│   └── ...
 └── src/                               # 源代码（按需创建）
     ├── __init__.py
     ├── harness_runner.py              # Harness 主流程运行器
@@ -199,6 +206,66 @@ openclaw-harness-engineering/
 2. control 将分析需求并创建 Feature 条目
 3. 按 Sprint Cycle 流程执行开发
 4. 所有产出物经过 Evaluator 评估达标后方可合并
+
+## FAQ
+
+### Q: 如何只处理某个特定的 Feature？
+```bash
+./scripts/run_harness.sh --feature-id F-002
+```
+
+### Q: 如何预览而不实际执行？
+```bash
+./scripts/run_harness.sh --dry-run
+```
+
+### Q: 评估报告在哪里查看？
+```bash
+python3 scripts/evaluate_sprint.py show <feature_id>
+```
+报告文件存放在 `evaluation_reports/` 目录下。
+
+### Q: 如何查看整体进度？
+```bash
+python3 scripts/check_feature_progress.py
+python3 scripts/check_feature_progress.py --json   # JSON格式输出
+python3 scripts/check_feature_progress.py --phase 2  # 只看Phase 2
+```
+
+### Q: 如何生成项目报告？
+```bash
+python3 scripts/harness_report.py                    # Markdown格式
+python3 scripts/harness_report.py --html              # HTML格式
+python3 scripts/harness_report.py --output report.md  # 指定输出文件
+```
+
+## Troubleshooting
+
+### 脚本报错 "ModuleNotFoundError"
+本项目为纯 Python 实现，无第三方依赖。请确认使用 Python 3.8+：
+```bash
+python3 --version
+```
+
+### JSON 文件解析失败
+验证 JSON 格式是否正确：
+```bash
+python3 -c "import json; json.load(open('feature_list.json')); print('OK')"
+```
+
+### run_harness.sh 没有执行权限
+```bash
+chmod +x scripts/run_harness.sh
+```
+
+### Feature List 为空或找不到 Feature
+检查 `feature_list.json` 文件是否存在且格式正确：
+```bash
+python3 scripts/create_feature_list.py validate
+```
+
+### evaluate_sprint.py show 报错 "评估报告不存在"
+评估报告需要先通过 `evaluate` 子命令生成，或手动放到 `evaluation_reports/` 目录下。
 
 ## License
 
