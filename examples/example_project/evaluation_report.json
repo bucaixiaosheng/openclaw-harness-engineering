@@ -1,0 +1,19 @@
+{
+  "contract_id": "SC-FEAT-001",
+  "feature_id": "FEAT-001",
+  "evaluated_at": "2026-03-28T19:00:00+08:00",
+  "scores": {
+    "functionality": {"score": 4, "weight": 0.30, "reason": "Todo CRUD功能完整实现，所有验证标准通过"},
+    "code_quality": {"score": 3, "weight": 0.25, "reason": "代码结构可接受，注释较少，缺少类型注解"},
+    "documentation": {"score": 4, "weight": 0.20, "reason": "包含README和函数docstring，使用说明完整"},
+    "test_coverage": {"score": 3, "weight": 0.15, "reason": "有基本单元测试，缺少边界情况测试"},
+    "architecture_compliance": {"score": 4, "weight": 0.10, "reason": "符合Harness Engineering架构规范，文件通信模式正确"}
+  },
+  "total_score": 81.0,
+  "verdict": "PASS",
+  "improvement_suggestions": [
+    "增加边界情况测试（空文件、损坏JSON、特殊字符）",
+    "补充详细注释和类型注解",
+    "考虑添加数据迁移机制"
+  ]
+}

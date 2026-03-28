@@ -47,7 +47,7 @@
       "description": "Harness流程的主入口脚本，编排Planner→Generator→Evaluator流程",
       "priority": "P0",
       "phase": 3,
-      "status": "pending",
+      "status": "done",
       "sprint_contract_id": null,
       "evaluator_score": null,
       "iteration_count": 0,
@@ -59,7 +59,7 @@
       "description": "create_feature_list.py：从需求文档自动生成feature_list.json",
       "priority": "P0",
       "phase": 3,
-      "status": "pending",
+      "status": "done",
       "sprint_contract_id": null,
       "evaluator_score": null,
       "iteration_count": 0,
@@ -71,7 +71,7 @@
       "description": "negotiate_sprint_contract.py：Generator和Evaluator通过文件协商完成标准",
       "priority": "P0",
       "phase": 3,
-      "status": "pending",
+      "status": "done",
       "sprint_contract_id": null,
       "evaluator_score": null,
       "iteration_count": 0,
@@ -83,7 +83,7 @@
       "description": "evaluate_sprint.py + evaluator_rubric.json：独立评估sprint产出",
       "priority": "P0",
       "phase": 4,
-      "status": "pending",
+      "status": "done",
       "sprint_contract_id": null,
       "evaluator_score": null,
       "iteration_count": 0,
@@ -95,7 +95,7 @@
       "description": "check_feature_progress.py：检查feature_list中各feature的完成状态",
       "priority": "P1",
       "phase": 5,
-      "status": "pending",
+      "status": "done",
       "sprint_contract_id": null,
       "evaluator_score": null,
       "iteration_count": 0,
@@ -107,7 +107,7 @@
       "description": "harness_report.py：汇总所有sprint的评估结果，生成markdown报告",
       "priority": "P1",
       "phase": 5,
-      "status": "pending",
+      "status": "done",
       "sprint_contract_id": null,
       "evaluator_score": null,
       "iteration_count": 0,
@@ -365,7 +365,7 @@
       "phase_id": 3,
       "phase_name": "核心脚本",
       "description": "创建Harness流程的核心脚本：主控脚本、Feature List生成、Sprint Contract协商",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_duration_minutes": 35,
       "feature_ids": [
         "FEAT-003",
@@ -379,7 +379,7 @@
           "description": "Harness系统的主入口：读取HARNESS_CONFIG→初始化环境→按Feature List循环调用Generator和Evaluator→汇总结果",
           "feature_id": "FEAT-003",
           "estimated_minutes": 10,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "支持--config参数指定配置文件路径",
             "支持--feature-id参数指定单个Feature",
@@ -406,7 +406,7 @@
           "description": "从需求文档(自然语言)或结构化输入生成feature_list.json",
           "feature_id": "FEAT-004",
           "estimated_minutes": 10,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "支持从Markdown需求文档解析Feature",
             "支持从命令行参数直接添加Feature",
@@ -432,7 +432,7 @@
           "description": "管理Sprint Contract的生命周期：创建→协商→确认→完成",
           "feature_id": "FEAT-005",
           "estimated_minutes": 10,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "支持create子命令创建新Sprint Contract",
             "支持update子命令更新Contract状态",
@@ -459,7 +459,7 @@
       "phase_id": 4,
       "phase_name": "评估脚本与评分标准",
       "description": "创建独立评估系统和评分标准文件",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_duration_minutes": 25,
       "feature_ids": [
         "FEAT-006"
@@ -471,7 +471,7 @@
           "description": "定义评分标准：各维度的评分项、权重、分数范围、PASS/FAIL阈值",
           "feature_id": "FEAT-006",
           "estimated_minutes": 8,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "定义评分维度：功能完整性(30%)、代码质量(25%)、文档完整性(20%)、测试覆盖(15%)、架构合规(10%)",
             "每个维度定义1-5分制评分标准",
@@ -497,7 +497,7 @@
           "description": "独立评估脚本：读取Sprint Contract→检查产出物→按rubric打分→生成评估报告",
           "feature_id": "FEAT-006",
           "estimated_minutes": 10,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "读取Sprint Contract获取待评估内容",
             "根据acceptance_criteria逐项检查产出物",
@@ -525,7 +525,7 @@
           "description": "定义evaluate_sprint.py输出的评估报告格式模板，作为脚本的参考",
           "feature_id": "FEAT-006",
           "estimated_minutes": 5,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "报告包含sprint_contract_id、feature_id",
             "报告包含各维度得分和总分",
@@ -550,7 +550,7 @@
       "phase_id": 5,
       "phase_name": "工具脚本",
       "description": "创建进度检查和报告生成的辅助工具",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_duration_minutes": 20,
       "feature_ids": [
         "FEAT-007",
@@ -563,7 +563,7 @@
           "description": "检查feature_list中各Feature的完成进度，支持按Phase/Status过滤",
           "feature_id": "FEAT-007",
           "estimated_minutes": 8,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "读取feature_list并统计各状态数量",
             "支持--phase过滤指定Phase的Feature",
@@ -589,7 +589,7 @@
           "description": "汇总所有Sprint评估结果，生成Markdown格式的综合报告",
           "feature_id": "FEAT-008",
           "estimated_minutes": 10,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "扫描所有Sprint Contract和评估报告",
             "生成包含图表的Markdown报告",
@@ -616,7 +616,7 @@
       "phase_id": 6,
       "phase_name": "示例项目",
       "description": "创建示例项目展示Harness Engineering系统的使用方法",
-      "status": "pending",
+      "status": "in_progress",
       "estimated_duration_minutes": 15,
       "feature_ids": [
         "FEAT-009"
