@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "score_range": {"min": 1, "max": 5},
+  "thresholds": {
+    "pass": 80,
+    "conditional_pass": 60,
+    "fail": 60,
+    "auto_fail_if_any_dimension_is": 1
+  },
+  "dimensions": [
+    {
+      "id": "functionality",
+      "name": "功能完整性",
+      "weight": 0.30,
+      "description": "产出物是否完整实现了Sprint Contract中定义的所有功能需求",
+      "scoring_guide": {
+        "5": "所有功能完整实现，无遗漏，超出预期",
+        "4": "所有功能完整实现，无遗漏",
+        "3": "核心功能实现，次要功能有遗漏",
+        "2": "核心功能部分实现，有明显遗漏",
+        "1": "功能严重不完整，无法使用"
+      }
+    },
+    {
+      "id": "code_quality",
+      "name": "代码质量",
+      "weight": 0.25,
+      "description": "代码结构、可读性、可维护性、注释质量",
+      "scoring_guide": {
+        "5": "代码结构优秀，有完整注释，易于维护和扩展",
+        "4": "代码结构良好，有适当注释",
+        "3": "代码结构可接受，注释较少",
+        "2": "代码结构混乱，缺少注释",
+        "1": "代码无法维护，无注释"
+      }
+    },
+    {
+      "id": "documentation",
+      "name": "文档完整性",
+      "weight": 0.20,
+      "description": "README、使用说明、API文档的完整性",
+      "scoring_guide": {
+        "5": "文档完整详尽，包含使用示例和FAQ",
+        "4": "文档完整，包含使用说明",
+        "3": "文档基本完整，缺少部分说明",
+        "2": "文档不完整，只有简要说明",
+        "1": "无文档或文档严重错误"
+      }
+    },
+    {
+      "id": "test_coverage",
+      "name": "测试覆盖",
+      "weight": 0.15,
+      "description": "是否包含测试代码，测试是否通过",
+      "scoring_guide": {
+        "5": "完整的单元测试和集成测试，全部通过",
+        "4": "有测试代码且全部通过",
+        "3": "有基本测试，大部分通过",
+        "2": "测试不完整或部分失败",
+        "1": "无测试代码"
+      }
+    },
+    {
+      "id": "architecture_compliance",
+      "name": "架构合规",
+      "weight": 0.10,
+      "description": "是否符合Harness Engineering架构规范（文件通信、独立评估、Sprint Contract）",
+      "scoring_guide": {
+        "5": "完全符合架构规范，设计优雅",
+        "4": "符合架构规范",
+        "3": "基本符合，有轻微偏差",
+        "2": "部分符合，有明显偏差",
+        "1": "不符合架构规范"
+      }
+    }
+  ],
+  "evaluation_output_format": {
+    "file": "evaluation_reports/{feature_id}_evaluation.json",
+    "fields": ["contract_id", "feature_id", "evaluated_at", "scores", "total_score", "verdict", "improvement_suggestions"]
+  }
+}
