@@ -14,7 +14,7 @@
       "上下文管理：sessions_spawn + 文件通信",
       "增量式进展：每次只做一个Feature"
     ],
-    "status": "coding"
+    "status": "completed"
   },
   "feature_list": [
     {
@@ -131,7 +131,7 @@
       "description": "端到端集成测试、README最终更新、git push",
       "priority": "P0",
       "phase": 7,
-      "status": "pending",
+      "status": "done",
       "sprint_contract_id": null,
       "evaluator_score": null,
       "iteration_count": 0,
@@ -656,7 +656,7 @@
       "phase_id": 7,
       "phase_name": "集成测试与发布",
       "description": "端到端集成测试、最终README更新、git push到远程仓库",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_duration_minutes": 25,
       "feature_ids": [
         "FEAT-010"
@@ -668,7 +668,7 @@
           "description": "使用示例项目数据，运行完整Harness流程：create_feature_list→negotiate_sprint_contract→evaluate_sprint→harness_report",
           "feature_id": "FEAT-010",
           "estimated_minutes": 10,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "run_harness.sh --dry-run成功执行",
             "create_feature_list.py --validate通过",
@@ -692,7 +692,7 @@
           "description": "根据集成测试结果更新README.md，添加实际使用截图和结果展示",
           "feature_id": "FEAT-010",
           "estimated_minutes": 8,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "README包含实际运行结果",
             "所有脚本路径和命令正确",
@@ -716,7 +716,7 @@
           "description": "git add所有文件，git commit，git push到GitHub",
           "feature_id": "FEAT-010",
           "estimated_minutes": 5,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "所有产出物文件已git add",
             "commit message清晰描述",
