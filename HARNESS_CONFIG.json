@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "agent_roles": {
+    "planner": {
+      "agent_id": "control",
+      "description": "Planner: 需求分析、Feature拆分、Sprint Contract发起"
+    },
+    "generator": {
+      "agent_id": "coding",
+      "description": "Generator: 按Sprint Contract实现Feature"
+    },
+    "evaluator": {
+      "agent_id": "evaluator",
+      "description": "Evaluator: 独立评估Generator产出物"
+    }
+  },
+  "sprint_defaults": {
+    "max_iterations": 3,
+    "score_threshold_pass": 80,
+    "score_threshold_fail": 60,
+    "negotiation_rounds": 3
+  },
+  "file_paths": {
+    "harness_config": "HARNESS_CONFIG.json",
+    "feature_list": "feature_list.json",
+    "sprint_contracts_dir": "sprint_contracts/",
+    "evaluation_reports_dir": "evaluation_reports/",
+    "evaluator_rubric": "evaluator_rubric.json"
+  },
+  "spawn_config": {
+    "runtime": "subagent",
+    "mode": "run",
+    "cleanup": "delete",
+    "thinking": "high",
+    "runTimeoutSeconds": 36000
+  }
+}

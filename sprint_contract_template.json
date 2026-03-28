@@ -1,0 +1,81 @@
+{
+  "_comment": "Sprint Contract Template - 每次发起Sprint时从此模板复制并填入实际数据",
+  "contract_id": "SC-TEMPLATE",
+  "feature_id": "F-XXX",
+  "status": "draft",
+  "created_at": "2026-03-28T00:00:00+08:00",
+  "updated_at": "2026-03-28T00:00:00+08:00",
+  "generator_commitment": {
+    "planned_build": "计划构建的内容描述，包含具体的功能点和实现方案",
+    "verification_criteria": [
+      "完成验证标准1：具体可测试的验收条件",
+      "完成验证标准2：具体可测试的验收条件",
+      "完成验证标准3：具体可测试的验收条件"
+    ],
+    "output_files": [
+      "预期产出的文件路径1",
+      "预期产出的文件路径2"
+    ]
+  },
+  "evaluator_criteria": {
+    "dimensions": {
+      "functional_completeness": {
+        "weight": 0.30,
+        "description": "功能完整性：是否实现了Contract中定义的所有功能点",
+        "scoring_guide": "100=全部功能完美实现; 80=核心功能完整; 60=部分功能缺失; 40=核心功能不完整; 20=基本未实现"
+      },
+      "code_quality": {
+        "weight": 0.25,
+        "description": "代码质量：代码风格、可读性、错误处理、最佳实践",
+        "scoring_guide": "100=生产级质量; 80=良好可维护; 60=基本可用; 40=需大量重构; 20=不可用"
+      },
+      "documentation_completeness": {
+        "weight": 0.20,
+        "description": "文档完整性：API文档、使用说明、代码注释",
+        "scoring_guide": "100=文档完备; 80=主要功能有文档; 60=基本说明; 40=文档不足; 20=无文档"
+      },
+      "test_coverage": {
+        "weight": 0.15,
+        "description": "测试覆盖：单元测试、边界测试、集成测试的覆盖度",
+        "scoring_guide": "100=全面覆盖; 80=核心路径覆盖; 60=基本测试; 40=测试不足; 20=无测试"
+      },
+      "architecture_compliance": {
+        "weight": 0.10,
+        "description": "架构合规：是否符合项目架构规范和设计模式",
+        "scoring_guide": "100=完全符合; 80=轻微偏差; 60=部分偏离; 40=明显违规; 20=架构混乱"
+      }
+    },
+    "score_thresholds": {
+      "pass": 80,
+      "fail": 60
+    }
+  },
+  "negotiation_history": [
+    {
+      "round": 1,
+      "role": "planner",
+      "message": "请确认此Contract内容，特别是verification_criteria和output_files是否符合预期",
+      "timestamp": "2026-03-28T00:00:00+08:00"
+    },
+    {
+      "round": 1,
+      "role": "generator",
+      "message": "已确认Contract内容，可以开始实现",
+      "timestamp": "2026-03-28T00:00:01+08:00"
+    }
+  ],
+  "evaluation_result": {
+    "scores": {
+      "functional_completeness": null,
+      "code_quality": null,
+      "documentation_completeness": null,
+      "test_coverage": null,
+      "architecture_compliance": null
+    },
+    "weighted_total": null,
+    "verdict": "pending",
+    "improvement_suggestions": []
+  },
+  "iteration": 0,
+  "max_iterations": 3
+}
