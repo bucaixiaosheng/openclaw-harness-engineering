@@ -1,0 +1,713 @@
+{
+  "meta": {
+    "project": "openclaw-harness-engineering",
+    "description": "基于Claude官方Harness Engineering方法论，构建适配OpenClaw本地部署的实战系统",
+    "created_at": "2026-03-28T19:12:00+08:00",
+    "author": "brainstorm-agent",
+    "version": "1.0.0",
+    "repo_url": "git@github.com:bucaixiaosheng/openclaw-harness-engineering.git",
+    "core_concepts": [
+      "Planner-Generator-Evaluator三Agent架构",
+      "Feature List（JSON格式）可跟踪功能点",
+      "Sprint Contract机制：Generator与Evaluator通过文件协商",
+      "独立评估：evaluator独立评分",
+      "上下文管理：sessions_spawn + 文件通信",
+      "增量式进展：每次只做一个Feature"
+    ]
+  },
+  "feature_list": [
+    {
+      "feature_id": "FEAT-001",
+      "name": "项目骨架与配置文件",
+      "description": "README.md、HARNESS_CONFIG.json、feature_list_template.json、sprint_contract_template.json",
+      "priority": "P0",
+      "phase": 1,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-002",
+      "name": "Agent SOUL文件",
+      "description": "control_agent_SOUL.md、evaluator_agent_SOUL.md、generator_agent_SOUL.md、brainstorm_agent_SOUL.md",
+      "priority": "P0",
+      "phase": 2,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-003",
+      "name": "主控脚本 run_harness.sh",
+      "description": "Harness流程的主入口脚本，编排Planner→Generator→Evaluator流程",
+      "priority": "P0",
+      "phase": 3,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-004",
+      "name": "Feature List生成脚本",
+      "description": "create_feature_list.py：从需求文档自动生成feature_list.json",
+      "priority": "P0",
+      "phase": 3,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-005",
+      "name": "Sprint Contract协商脚本",
+      "description": "negotiate_sprint_contract.py：Generator和Evaluator通过文件协商完成标准",
+      "priority": "P0",
+      "phase": 3,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-006",
+      "name": "Sprint评估脚本与评分标准",
+      "description": "evaluate_sprint.py + evaluator_rubric.json：独立评估sprint产出",
+      "priority": "P0",
+      "phase": 4,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-007",
+      "name": "进度检查脚本",
+      "description": "check_feature_progress.py：检查feature_list中各feature的完成状态",
+      "priority": "P1",
+      "phase": 5,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-008",
+      "name": "Harness报告生成脚本",
+      "description": "harness_report.py：汇总所有sprint的评估结果，生成markdown报告",
+      "priority": "P1",
+      "phase": 5,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-009",
+      "name": "示例项目",
+      "description": "examples/example_project/README.md：展示如何使用Harness Engineering系统",
+      "priority": "P2",
+      "phase": 6,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    },
+    {
+      "feature_id": "FEAT-010",
+      "name": "集成测试与最终发布",
+      "description": "端到端集成测试、README最终更新、git push",
+      "priority": "P0",
+      "phase": 7,
+      "status": "pending",
+      "sprint_contract_id": null,
+      "evaluator_score": null,
+      "iteration_count": 0,
+      "max_iterations": 3
+    }
+  ],
+  "phases": [
+    {
+      "phase_id": 1,
+      "phase_name": "项目骨架与配置文件",
+      "description": "创建项目基础结构、README文档、核心配置文件和模板文件",
+      "status": "pending",
+      "estimated_duration_minutes": 25,
+      "feature_ids": ["FEAT-001"],
+      "tasks": [
+        {
+          "task_id": "T1-001",
+          "task_name": "创建README.md",
+          "description": "项目说明文档，包含：项目概述、架构图(Planner-Generator-Evaluator)、安装说明、快速开始指南、文件结构说明",
+          "feature_id": "FEAT-001",
+          "estimated_minutes": 8,
+          "status": "pending",
+          "acceptance_criteria": [
+            "README.md包含项目概述和架构说明",
+            "包含完整的文件结构树",
+            "包含安装和快速开始指南",
+            "Markdown格式正确，无语法错误"
+          ],
+          "output_files": ["README.md"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T1-002",
+          "task_name": "创建HARNESS_CONFIG.json",
+          "description": "Harness系统的核心配置文件，定义Agent角色映射、默认参数、评分阈值等",
+          "feature_id": "FEAT-001",
+          "estimated_minutes": 6,
+          "status": "pending",
+          "acceptance_criteria": [
+            "包含agent_roles定义(control→Planner, coding→Generator, evaluator→Evaluator)",
+            "包含sprint默认参数(max_iterations=3, score_threshold=80)",
+            "包含文件路径配置",
+            "JSON格式正确可解析"
+          ],
+          "output_files": ["HARNESS_CONFIG.json"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T1-003",
+          "task_name": "创建feature_list_template.json",
+          "description": "Feature List模板，定义功能点跟踪的标准格式",
+          "feature_id": "FEAT-001",
+          "estimated_minutes": 5,
+          "status": "pending",
+          "acceptance_criteria": [
+            "包含feature_id、name、description、priority字段",
+            "包含status枚举(pending/in_progress/done/blocked)",
+            "包含sprint_contract_id关联字段",
+            "包含evaluator_score和iteration_count字段",
+            "包含示例数据"
+          ],
+          "output_files": ["feature_list_template.json"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T1-004",
+          "task_name": "创建sprint_contract_template.json",
+          "description": "Sprint Contract模板，定义Generator和Evaluator之间的协商协议",
+          "feature_id": "FEAT-001",
+          "estimated_minutes": 5,
+          "status": "pending",
+          "acceptance_criteria": [
+            "包含contract_id、feature_id、created_at字段",
+            "包含generator_commitment(提交物列表和完成标准)",
+            "包含evaluator_criteria(评分维度和权重)",
+            "包含negotiation_history(协商记录)",
+            "包含status枚举(draft/agreed/completed/failed)",
+            "JSON格式正确可解析"
+          ],
+          "output_files": ["sprint_contract_template.json"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        }
+      ]
+    },
+    {
+      "phase_id": 2,
+      "phase_name": "Agent SOUL文件",
+      "description": "创建四个Agent角色的SOUL.md提示词文件，定义每个角色的职责、行为准则和协作接口",
+      "status": "pending",
+      "estimated_duration_minutes": 30,
+      "feature_ids": ["FEAT-002"],
+      "tasks": [
+        {
+          "task_id": "T2-001",
+          "task_name": "创建control_agent_SOUL.md",
+          "description": "Planner角色的SOUL文件：负责需求分析、Feature拆分、Sprint Contract发起、进度跟踪、协调Generator和Evaluator",
+          "feature_id": "FEAT-002",
+          "estimated_minutes": 8,
+          "status": "pending",
+          "acceptance_criteria": [
+            "明确定义Planner职责：需求→Feature List→Sprint Contract→进度跟踪",
+            "定义与Generator和Evaluator的交互协议",
+            "包含sessions_spawn使用规范",
+            "包含错误处理和重试策略",
+            "包含具体的文件读写接口定义"
+          ],
+          "output_files": ["control_agent_SOUL.md"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T2-002",
+          "task_name": "创建generator_agent_SOUL.md",
+          "description": "Generator角色的SOUL文件：负责接收Sprint Contract、按Feature实现代码、提交产出物",
+          "feature_id": "FEAT-002",
+          "estimated_minutes": 8,
+          "status": "pending",
+          "acceptance_criteria": [
+            "明确定义Generator职责：读取Sprint Contract→实现Feature→更新状态",
+            "定义代码产出物标准(命名规范、注释要求)",
+            "包含与Evaluator的协商流程",
+            "包含迭代修改流程(根据Evaluator反馈修改)",
+            "包含具体的文件读写接口定义"
+          ],
+          "output_files": ["generator_agent_SOUL.md"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T2-003",
+          "task_name": "创建evaluator_agent_SOUL.md",
+          "description": "Evaluator角色的SOUL文件：独立评估Generator的产出物，按rubric打分，提供改进建议",
+          "feature_id": "FEAT-002",
+          "estimated_minutes": 8,
+          "status": "pending",
+          "acceptance_criteria": [
+            "明确定义Evaluator职责：读取Sprint Contract→评估产出→打分→反馈",
+            "强调查立性：不和Generator是同一个agent",
+            "定义评分流程和rubric使用方法",
+            "包含PASS/FAIL判定标准和重试建议",
+            "包含具体的文件读写接口定义"
+          ],
+          "output_files": ["evaluator_agent_SOUL.md"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T2-004",
+          "task_name": "创建brainstorm_agent_SOUL.md",
+          "description": "Brainstorm角色的SOUL文件：负责架构设计、Phase Plan生成、技术方案评审",
+          "feature_id": "FEAT-002",
+          "estimated_minutes": 6,
+          "status": "pending",
+          "acceptance_criteria": [
+            "明确定义Brainstorm职责：架构设计→Phase Plan→技术评审",
+            "定义Phase Plan的生成规范",
+            "包含与control agent的汇报协议",
+            "包含任务拆分原则(每个task≤10分钟)"
+          ],
+          "output_files": ["brainstorm_agent_SOUL.md"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        }
+      ]
+    },
+    {
+      "phase_id": 3,
+      "phase_name": "核心脚本",
+      "description": "创建Harness流程的核心脚本：主控脚本、Feature List生成、Sprint Contract协商",
+      "status": "pending",
+      "estimated_duration_minutes": 35,
+      "feature_ids": ["FEAT-003", "FEAT-004", "FEAT-005"],
+      "tasks": [
+        {
+          "task_id": "T3-001",
+          "task_name": "创建run_harness.sh主控脚本",
+          "description": "Harness系统的主入口：读取HARNESS_CONFIG→初始化环境→按Feature List循环调用Generator和Evaluator→汇总结果",
+          "feature_id": "FEAT-003",
+          "estimated_minutes": 10,
+          "status": "pending",
+          "acceptance_criteria": [
+            "支持--config参数指定配置文件路径",
+            "支持--feature-id参数指定单个Feature",
+            "支持--phase参数指定Phase",
+            "支持--dry-run模式（只打印不执行）",
+            "包含完整的错误处理和日志输出",
+            "脚本可直接chmod +x执行",
+            "读取HARNESS_CONFIG.json获取Agent配置"
+          ],
+          "output_files": ["scripts/run_harness.sh"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T3-002",
+          "task_name": "创建create_feature_list.py",
+          "description": "从需求文档(自然语言)或结构化输入生成feature_list.json",
+          "feature_id": "FEAT-004",
+          "estimated_minutes": 10,
+          "status": "pending",
+          "acceptance_criteria": [
+            "支持从Markdown需求文档解析Feature",
+            "支持从命令行参数直接添加Feature",
+            "输出符合feature_list_template.json格式",
+            "自动分配feature_id(FEAT-NNN)",
+            "支持--output参数指定输出路径",
+            "包含--validate模式验证已有feature_list"
+          ],
+          "output_files": ["scripts/create_feature_list.py"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T3-003",
+          "task_name": "创建negotiate_sprint_contract.py",
+          "description": "管理Sprint Contract的生命周期：创建→协商→确认→完成",
+          "feature_id": "FEAT-005",
+          "estimated_minutes": 10,
+          "status": "pending",
+          "acceptance_criteria": [
+            "支持create子命令创建新Sprint Contract",
+            "支持update子命令更新Contract状态",
+            "支持show子命令展示Contract详情",
+            "自动关联feature_id",
+            "支持negotiation_history记录",
+            "输出符合sprint_contract_template.json格式",
+            "包含--auto-agree模式(自动确认)"
+          ],
+          "output_files": ["scripts/negotiate_sprint_contract.py"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        }
+      ]
+    },
+    {
+      "phase_id": 4,
+      "phase_name": "评估脚本与评分标准",
+      "description": "创建独立评估系统和评分标准文件",
+      "status": "pending",
+      "estimated_duration_minutes": 25,
+      "feature_ids": ["FEAT-006"],
+      "tasks": [
+        {
+          "task_id": "T4-001",
+          "task_name": "创建evaluator_rubric.json",
+          "description": "定义评分标准：各维度的评分项、权重、分数范围、PASS/FAIL阈值",
+          "feature_id": "FEAT-006",
+          "estimated_minutes": 8,
+          "status": "pending",
+          "acceptance_criteria": [
+            "定义评分维度：功能完整性(30%)、代码质量(25%)、文档完整性(20%)、测试覆盖(15%)、架构合规(10%)",
+            "每个维度定义1-5分制评分标准",
+            "定义PASS阈值(总分≥80分)",
+            "定义FAIL阈值(总分<60分或任一维度=1)",
+            "定义CONDITIONAL_PASS(60-80分，需改进)",
+            "JSON格式正确可解析"
+          ],
+          "output_files": ["evaluator_rubric.json"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T4-002",
+          "task_name": "创建evaluate_sprint.py",
+          "description": "独立评估脚本：读取Sprint Contract→检查产出物→按rubric打分→生成评估报告",
+          "feature_id": "FEAT-006",
+          "estimated_minutes": 10,
+          "status": "pending",
+          "acceptance_criteria": [
+            "读取Sprint Contract获取待评估内容",
+            "根据acceptance_criteria逐项检查产出物",
+            "按evaluator_rubric.json的维度评分",
+            "输出评估报告(JSON格式)",
+            "支持--rubric参数指定评分标准文件",
+            "支持--verbose模式输出详细评分过程",
+            "更新Sprint Contract状态(completed/failed)",
+            "更新feature_list中的evaluator_score"
+          ],
+          "output_files": ["scripts/evaluate_sprint.py"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T4-003",
+          "task_name": "创建评估报告输出模板",
+          "description": "定义evaluate_sprint.py输出的评估报告格式模板，作为脚本的参考",
+          "feature_id": "FEAT-006",
+          "estimated_minutes": 5,
+          "status": "pending",
+          "acceptance_criteria": [
+            "报告包含sprint_contract_id、feature_id",
+            "报告包含各维度得分和总分",
+            "报告包含PASS/FAIL判定",
+            "报告包含改进建议",
+            "作为evaluate_sprint.py的输出规范"
+          ],
+          "output_files": ["scripts/evaluate_sprint.py"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        }
+      ]
+    },
+    {
+      "phase_id": 5,
+      "phase_name": "工具脚本",
+      "description": "创建进度检查和报告生成的辅助工具",
+      "status": "pending",
+      "estimated_duration_minutes": 20,
+      "feature_ids": ["FEAT-007", "FEAT-008"],
+      "tasks": [
+        {
+          "task_id": "T5-001",
+          "task_name": "创建check_feature_progress.py",
+          "description": "检查feature_list中各Feature的完成进度，支持按Phase/Status过滤",
+          "feature_id": "FEAT-007",
+          "estimated_minutes": 8,
+          "status": "pending",
+          "acceptance_criteria": [
+            "读取feature_list并统计各状态数量",
+            "支持--phase过滤指定Phase的Feature",
+            "支持--status过滤指定状态的Feature",
+            "支持--json输出JSON格式",
+            "输出包含进度百分比和ETA估算",
+            "支持--watch模式(持续监控)"
+          ],
+          "output_files": ["scripts/check_feature_progress.py"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T5-002",
+          "task_name": "创建harness_report.py",
+          "description": "汇总所有Sprint评估结果，生成Markdown格式的综合报告",
+          "feature_id": "FEAT-008",
+          "estimated_minutes": 10,
+          "status": "pending",
+          "acceptance_criteria": [
+            "扫描所有Sprint Contract和评估报告",
+            "生成包含图表的Markdown报告",
+            "按Phase分组展示Feature完成状态",
+            "包含总体进度统计",
+            "支持--output参数指定输出文件",
+            "支持--html输出HTML格式",
+            "包含迭代历史和评分趋势"
+          ],
+          "output_files": ["scripts/harness_report.py"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        }
+      ]
+    },
+    {
+      "phase_id": 6,
+      "phase_name": "示例项目",
+      "description": "创建示例项目展示Harness Engineering系统的使用方法",
+      "status": "pending",
+      "estimated_duration_minutes": 15,
+      "feature_ids": ["FEAT-009"],
+      "tasks": [
+        {
+          "task_id": "T6-001",
+          "task_name": "创建示例项目README和配置",
+          "description": "创建examples/example_project/目录，包含完整的示例Feature List、示例Sprint Contract、示例评估报告",
+          "feature_id": "FEAT-009",
+          "estimated_minutes": 10,
+          "status": "pending",
+          "acceptance_criteria": [
+            "README.md包含完整的使用流程演示",
+            "包含示例feature_list.json(3-5个Feature)",
+            "包含示例sprint_contract.json(1-2个Contract)",
+            "包含示例evaluation_report.json(1个报告)",
+            "示例数据自洽，可直接运行测试"
+          ],
+          "output_files": [
+            "examples/example_project/README.md",
+            "examples/example_project/feature_list.json",
+            "examples/example_project/sprint_contract.json",
+            "examples/example_project/evaluation_report.json"
+          ],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        }
+      ]
+    },
+    {
+      "phase_id": 7,
+      "phase_name": "集成测试与发布",
+      "description": "端到端集成测试、最终README更新、git push到远程仓库",
+      "status": "pending",
+      "estimated_duration_minutes": 25,
+      "feature_ids": ["FEAT-010"],
+      "tasks": [
+        {
+          "task_id": "T7-001",
+          "task_name": "端到端集成测试",
+          "description": "使用示例项目数据，运行完整Harness流程：create_feature_list→negotiate_sprint_contract→evaluate_sprint→harness_report",
+          "feature_id": "FEAT-010",
+          "estimated_minutes": 10,
+          "status": "pending",
+          "acceptance_criteria": [
+            "run_harness.sh --dry-run成功执行",
+            "create_feature_list.py --validate通过",
+            "negotiate_sprint_contract.py create/show/update正常",
+            "evaluate_sprint.py评估示例项目正常",
+            "harness_report.py生成报告正常",
+            "所有脚本无报错退出"
+          ],
+          "output_files": [],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T7-002",
+          "task_name": "更新README和文档",
+          "description": "根据集成测试结果更新README.md，添加实际使用截图和结果展示",
+          "feature_id": "FEAT-010",
+          "estimated_minutes": 8,
+          "status": "pending",
+          "acceptance_criteria": [
+            "README包含实际运行结果",
+            "所有脚本路径和命令正确",
+            "架构图和流程图完整",
+            "FAQ和Troubleshooting部分"
+          ],
+          "output_files": ["README.md"],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        },
+        {
+          "task_id": "T7-003",
+          "task_name": "Git提交并推送到远程仓库",
+          "description": "git add所有文件，git commit，git push到GitHub",
+          "feature_id": "FEAT-010",
+          "estimated_minutes": 5,
+          "status": "pending",
+          "acceptance_criteria": [
+            "所有产出物文件已git add",
+            "commit message清晰描述",
+            "git push到origin/main成功",
+            "GitHub仓库可访问"
+          ],
+          "output_files": [],
+          "sprint_contract": {
+            "status": "pending",
+            "contract_file": null,
+            "evaluator_score": null,
+            "iteration": 0,
+            "max_iterations": 3
+          }
+        }
+      ]
+    }
+  ],
+  "total_stats": {
+    "total_phases": 7,
+    "total_tasks": 17,
+    "total_features": 10,
+    "estimated_total_minutes": 175,
+    "output_files": [
+      "README.md",
+      "HARNESS_CONFIG.json",
+      "feature_list_template.json",
+      "sprint_contract_template.json",
+      "evaluator_rubric.json",
+      "control_agent_SOUL.md",
+      "evaluator_agent_SOUL.md",
+      "generator_agent_SOUL.md",
+      "brainstorm_agent_SOUL.md",
+      "scripts/run_harness.sh",
+      "scripts/create_feature_list.py",
+      "scripts/negotiate_sprint_contract.py",
+      "scripts/evaluate_sprint.py",
+      "scripts/check_feature_progress.py",
+      "scripts/harness_report.py",
+      "examples/example_project/README.md",
+      "examples/example_project/feature_list.json",
+      "examples/example_project/sprint_contract.json",
+      "examples/example_project/evaluation_report.json"
+    ]
+  }
+}
