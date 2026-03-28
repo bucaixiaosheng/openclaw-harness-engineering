@@ -119,7 +119,7 @@
       "description": "examples/example_project/README.md：展示如何使用Harness Engineering系统",
       "priority": "P2",
       "phase": 6,
-      "status": "pending",
+      "status": "done",
       "sprint_contract_id": null,
       "evaluator_score": null,
       "iteration_count": 0,
@@ -616,7 +616,7 @@
       "phase_id": 6,
       "phase_name": "示例项目",
       "description": "创建示例项目展示Harness Engineering系统的使用方法",
-      "status": "in_progress",
+      "status": "completed",
       "estimated_duration_minutes": 15,
       "feature_ids": [
         "FEAT-009"
@@ -628,7 +628,7 @@
           "description": "创建examples/example_project/目录，包含完整的示例Feature List、示例Sprint Contract、示例评估报告",
           "feature_id": "FEAT-009",
           "estimated_minutes": 10,
-          "status": "pending",
+          "status": "completed",
           "acceptance_criteria": [
             "README.md包含完整的使用流程演示",
             "包含示例feature_list.json(3-5个Feature)",
@@ -656,7 +656,7 @@
       "phase_id": 7,
       "phase_name": "集成测试与发布",
       "description": "端到端集成测试、最终README更新、git push到远程仓库",
-      "status": "pending",
+      "status": "in_progress",
       "estimated_duration_minutes": 25,
       "feature_ids": [
         "FEAT-010"
